@@ -14,11 +14,17 @@ x_predict = np.array([111,112,113])
 
 # 2. model
 model = Sequential()
-model.add(Dense(1, input_dim=1))
+model.add(Dense(3, input_dim=1))
+model.add(Dense(9))
+model.add(Dense(9))
+model.add(Dense(9))
+model.add(Dense(9))
+model.add(Dense(3))
+
 
 # 3. compile, training
 model.compile(loss='mse', optimizer='adam')
-model.fit(x_train, y_train, epochs=1, batch_size=1)
+model.fit(x_train, y_train, epochs=50, batch_size=1)
 
 # 4. evaluate, predict
 loss = model.evaluate(x_test, y_test, batch_size=1)
