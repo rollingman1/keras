@@ -21,7 +21,7 @@ model.add(Dense(1))
 
 # 3. compile, training
 model.compile(loss='mse', optimizer='adam')
-model.fit(x_train, y_train, batch_size=1, epochs=500)
+model.fit(x_train, y_train, batch_size=1, epochs=100)
 
 # 4. evaluation
 loss = model.evaluate(x_test,y_test)
