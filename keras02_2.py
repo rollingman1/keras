@@ -17,9 +17,8 @@ model = Sequential()
 model.add(Dense(3, input_dim=1))
 model.add(Dense(9))
 model.add(Dense(9))
-model.add(Dense(9))
-model.add(Dense(9))
 model.add(Dense(3))
+model.add(Dense(1))
 
 
 # 3. compile, training
