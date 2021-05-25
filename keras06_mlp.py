@@ -31,7 +31,10 @@ y = np.array([1,2,3,4,5,6,7,8,9,10])
 
 
 x = np.transpose(x) # shape : (10, 2), matching dimension
-
+from sklearn.model_selection import train_test_split
+x_train, x_test, y_train, y_test = train_test_split(
+    x, y, test_size=0.1
+)
 # 2. model
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
@@ -44,7 +47,7 @@ model.add(Dense(1))
 
 # 3. compile, trainnig
 model.compile(loss='mse',optimizer='adam')
-model.fit(x, y, batch_size=1, epochs=100, 
+model.fit(x_train, y_train, batch_size=1, epochs=100, 
     validation_split=0.2)
 
 # 4. evaluate, predict
