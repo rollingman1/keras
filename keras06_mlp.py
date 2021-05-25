@@ -1,5 +1,5 @@
 # MLP : Muli Layer Perceptron
-#   Perceptron
+#   Perceptron : input layer -> hidden layer -> output layer (layer number 3 or higher)
 import numpy as np
 from tensorflow.python.keras import activations
 
@@ -56,7 +56,7 @@ y_predict = model.predict(np.transpose([[11,12,13],[21,22,23]]))
 print('y_predict : ', y_predict)
 
 # Epoch 100/100
-# 8/8 [==============================] - 0s 2ms/step - loss: 6.8230e-05 - val_loss: 1.4660e-04
-# y_predict :  [[10.983566]
-#  [11.980624]
-#  [12.977681]]
+# 7/7 [==============================] - 0s 3ms/step - loss: 0.2447 - val_loss: 0.0668
+# y_predict :  [[10.106266 ]
+#  [10.930104 ]
+#  [11.7539425]]
