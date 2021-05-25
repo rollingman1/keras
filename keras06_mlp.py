@@ -1,6 +1,7 @@
 # MLP : Muli Layer Perceptron
 #   Perceptron
 import numpy as np
+from tensorflow.python.keras import activations
 
 # 1. data
 x = np.array([[1,2,3,4,5,6,7,8,9,10],
@@ -42,6 +43,17 @@ model.add(Dense(5))
 model.add(Dense(1))
 
 # 3. compile, trainnig
+model.compile(loss='mse',optimizer='adam')
+model.fit(x, y, batch_size=1, epochs=100, 
+    validation_split=0.2)
 
 # 4. evaluate, predict
 # predict [[11,12,13],[21,22,23]]
+y_predict = model.predict(np.transpose([[11,12,13],[21,22,23]]))
+print('y_predict : ', y_predict)
+
+# Epoch 100/100
+# 8/8 [==============================] - 0s 2ms/step - loss: 6.8230e-05 - val_loss: 1.4660e-04
+# y_predict :  [[10.983566]
+#  [11.980624]
+#  [12.977681]]
