@@ -27,7 +27,7 @@ from tensorflow.keras.layers import Dense
 model = Sequential()
 model.add(Dense(10, activation='relu', input_shape=(30,)))
 model.add(Dense(10))
-model.add(Dense(2, activation='sigmoid'))
+model.add(Dense(1, activation='sigmoid'))
 
 #3.
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['acc'])

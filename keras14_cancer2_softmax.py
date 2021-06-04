@@ -2,6 +2,7 @@
 import numpy as np
 from sklearn import datasets
 from sklearn.datasets import load_breast_cancer
+from tensorflow.python.keras.callbacks import EarlyStopping
 
 #1.
 dataset = load_breast_cancer()
@@ -30,11 +31,12 @@ from tensorflow.keras.layers import Dense
 
 model = Sequential()
 model.add(Dense(10, activation='relu', input_shape=(30,)))
-model.add(Dense(1, activation='softmax'))
+model.add(Dense(10))
+model.add(Dense(2, activation='softmax'))
 
 #3.
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['acc'])
-model.fit(x, y, epochs=50, batch_size=1, validation_split=0.1)
+model.fit(x, y, epochs=100, batch_size=1, validation_split=0.1, EarlyStopping=True) # early stopping
 
 # 4. 평가, 예측
 results = model.evaluate(x_test, y_test)
