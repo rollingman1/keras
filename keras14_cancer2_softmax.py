@@ -31,12 +31,12 @@ from tensorflow.keras.layers import Dense
 
 model = Sequential()
 model.add(Dense(10, activation='relu', input_shape=(30,)))
-model.add(Dense(10))
 model.add(Dense(2, activation='softmax'))
 
 #3.
+es = EarlyStopping(monitor='val_acc', patience=25)
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['acc'])
-model.fit(x, y, epochs=100, batch_size=1, validation_split=0.1, EarlyStopping=True) # early stopping
+model.fit(x, y, epochs=100, batch_size=1, validation_split=0.1, callbacks=[es]) # early stopping
 
 # 4. 평가, 예측
 results = model.evaluate(x_test, y_test)
