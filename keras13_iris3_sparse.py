@@ -10,7 +10,7 @@ print(y[:5])
 print(x.shape, y.shape) # (150, 4) (150,)
 
 print(dataset.feature_names)
-print(dataset.DESCR) # 회귀 문제
+print(dataset.DESCR) # 다중 분류 문제
 
 from sklearn.model_selection import train_test_split
 x_train, x_test, y_train, y_test = train_test_split(
